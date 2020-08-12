@@ -3,6 +3,9 @@ const cron = require('node-cron');
 const TelegramBot = require("node-telegram-bot-api");
 require("dotenv").config();
 
+const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+const chatId = '@snowenotice';  //채널id
+
 let prevPost = [];
 let curPost = [];
 
@@ -49,33 +52,26 @@ const getNewPosts = async() => {
 
     await browser.close();
 
+    if (prevPost.length > 0 && curPost[0].id !== prevPost[0].id) {
+      console.log("update!");
+      pushMessage(chatId);
+    }
 }
 
-const job = new cron.schedule( "*/10 * 6-20 * * 1-5", function () {
+const job = new cron.schedule( "*/30 6-20 * * 1-5", function () {
       let today = new Date();
       console.log(today);
       prevPost = curPost;
       getNewPosts();
-    if (prevPost.length > 0 && curPost[0].id !== prevPost[0].id) {
-      pushMessage(chatId);
-    }
   }, null, true, "Asia/Seoul"
 );
 
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
-let running = false;
-bot.on("message", (msg) => {
-    if(!running){
-        running = true;
-        const chatId = msg.chat.id;
-        bot.sendMessage(
-          chatId,
-          "지금부터 공지사항에 새 글이 올라오면 알려드립니다.\n월~금 6시~21시 30분 간격으로 업데이트를 확인합니다."
-        );
-        job.start();
-    }
-});
+bot.sendMessage(
+  chatId,
+  "공지사항에 새 글이 올라오면 알려드립니다.\n월~금 6시~21시 30분 간격으로 업데이트를 확인합니다."
+);
+job.start();
 
 
 
