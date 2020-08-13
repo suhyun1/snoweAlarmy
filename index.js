@@ -67,7 +67,7 @@ const getFormatDate = async(date) => {
     }
     return posts;
   });
-
+  console.log(careerNotice[0]);
   await browser.close();
 
   const todayDate = await getFormatDate(new Date());
