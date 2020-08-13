@@ -32,5 +32,9 @@ jobs:
           
     - name: start
       run: node index.js
+      env: 
+        USER_ID: ${{ secrets.USER_ID }}
+        USER_PW: ${{ secrets.USER_PW }}
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  
     
 
