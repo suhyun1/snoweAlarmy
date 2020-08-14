@@ -48,5 +48,7 @@ const chatId = '@snowenotice';  //채널id
     await bot.sendMessage(chatId, message);
   }
 
-   
-})();
+   console.log("✅성공적으로 전송되었습니다.");
+})().catch(e => {
+    console.log(e)
+});
