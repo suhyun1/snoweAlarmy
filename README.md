@@ -28,4 +28,4 @@ Headless 브라우저(크롬)을 쉽게 사용할 수 있도록 Google에서 공
 <br/>
 
 ### 참고
-- [유용한 Javascript 웹 스크래퍼: Puppeteer](https://velog.io/@filoscoder/%EC%9C%A0%EC%9A%A9%ED%95%9C-Js-%EC%9B%B9-%EC%8A%A4%ED%81%AC%EB%9E%98%ED%8D%BC-Puppeteer-rdk49nmlyc)
+- https://docs.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions
