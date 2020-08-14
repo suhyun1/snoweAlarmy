@@ -23,10 +23,10 @@ jobs:
       uses: actions/setup-node@v1.4.3
     
     - name: Install dependencies
-    - run: npm ci
+      run: npm ci
     
     - name: Notify
-    - uses: suhyun1/snoweAlarmy@master
+      uses: suhyun1/snoweAlarmy@master
       env: 
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  
     
