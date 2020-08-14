@@ -25,7 +25,7 @@ jobs:
     - run: npm ci
     
     - name: Notify
-    - run: suhyun1/snoweAlarmy@master
+    - uses: suhyun1/snoweAlarmy@master
       env: 
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  
     
