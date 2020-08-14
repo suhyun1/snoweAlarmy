@@ -24,10 +24,8 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.3
     
-    - name: 알림
-      run: 
-        npm ci
-        npm run start
+    - run: npm ci
+    - run: npm run start
       env: 
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  
     
