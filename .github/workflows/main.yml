@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: workflow
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -8,10 +8,10 @@ on:
   #push:
   #  branches: [ master ]
   schedule:
-   - cron: "35 8 * * *"
+   - cron: "0 14 * * *"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  notify:
+  job:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -23,7 +23,9 @@ jobs:
       uses: actions/setup-node@v1.4.3
     
     - run: npm ci
-    - run: npm run start
+    
+    - name: Notify
+    - run: suhyun1/snoweAlarmy@master
       env: 
         BOT_TOKEN: ${{ secrets.BOT_TOKEN }}  
     
