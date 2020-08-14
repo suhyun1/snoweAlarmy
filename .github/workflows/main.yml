@@ -23,6 +23,11 @@ jobs:
       
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.3
+    
+    - name: Install dependencies
+      run:
+          npm install axios
+          npm install node-telegram-bot-api
 
     - name: start
       run: npm run start
