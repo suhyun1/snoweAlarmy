@@ -1,5 +1,0 @@
-name: 'Snowe Notice Notifier'
-
-runs:
-  using: 'node12'
-  main: 'index.js'
