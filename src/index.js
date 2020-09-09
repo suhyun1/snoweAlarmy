@@ -30,4 +30,8 @@ const chatId = "@snowenotice"; //채널id
   }
 })().catch((e) => {
   console.log(e);
+  bot.sendMessage(
+    process.env.ADMIN_CHAT_ID,
+    "❗오류가 발생하여 전송에 실패했습니다."
+  );
 });

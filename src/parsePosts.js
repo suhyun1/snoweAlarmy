@@ -10,7 +10,7 @@ const parsePosts = async (boardKey) => {
       rows: "30",
     },
   });
-
+  if (response.data.page === undefined) throw new Error("요청 실패");
   const data = response.data.page.list;
   const nowTime = Date.parse(new Date());
   const posts = [];
